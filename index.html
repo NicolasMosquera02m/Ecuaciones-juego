@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecuaciones - Caída libre (prototipo)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Caída libre — Prototipo</h1>
+        <div class="controls">
+          <label>Mundo:
+            <select id="worldSelect"></select>
+          </label>
+          <label>Pelota:
+            <select id="ballSelect">
+              <option value="0">Ligera (0.2 kg)</option>
+              <option value="1" selected>Media (1.0 kg)</option>
+              <option value="2">Pesada (5.0 kg)</option>
+            </select>
+          </label>
+          <button id="startBtn">Iniciar</button>
+          <button id="resetBtn">Reiniciar</button>
+          <button id="toggleTheory">Mostrar teoría</button>
+        </div>
+      </header>
+
+      <main>
+        <canvas id="game" width="800" height="600"></canvas>
+        <aside class="info">
+          <div>Altura: <span id="height">100.00</span> m</div>
+          <div>Velocidad: <span id="velocity">0.00</span> m/s</div>
+          <div>Tiempo: <span id="time">0.00</span> s</div>
+          <div>Puntuación (menor es mejor): <span id="score">-</span></div>
+          <hr>
+          <div id="message" class="message">Presiona "Iniciar" para empezar</div>
+        </aside>
+      </main>
+
+      <section id="theory" class="theory hidden">
+        <h2>Pequeña teoría</h2>
+        <p>En caída libre, la posición vertical aproximada se calcula con:</p>
+        <p class="equation">s = s0 + v0·t + 0.5·g·t²</p>
+        <p>Este prototipo añade resistencia del aire: a = g - (k/m)·v (modelo simple), por lo que la masa y el coeficiente de arrastre afectan a la aceleración.</p>
+      </section>
+
+      <footer>
+        <small>Controles: ← y → para moverte horizontalmente. Evita obstáculos y toca una plataforma o el suelo. Hecho como prototipo educativo.</small>
+      </footer>
+    </div>
+
+    <script src="src/game.js"></script>
+  </body>
+</html>
