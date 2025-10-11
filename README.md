@@ -24,6 +24,5 @@ Notas y siguientes pasos sugeridos:
 - Añadir gráficos, sonidos y niveles más pulidos.
 - Añadir una pantalla de puntajes y explicación interactiva de la ecuación de caída libre.
 
-Hecho como prototipo educativo por petición del usuario.
 ```
 # Ecuaciones-juego
