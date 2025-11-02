@@ -1,13 +1,16 @@
 * { box-sizing: border-box; }
 body { font-family: Inter, system-ui, Arial, sans-serif; margin:0; background: linear-gradient(#87CEEB,#e0f7ff); color:#062; }
-.container { max-width:1000px; margin: 12px auto; padding: 12px; }
-header { display:flex; align-items:center; justify-content:space-between; }
-.controls { display:flex; gap:8px; align-items:center; }
-main { display:flex; gap:12px; margin-top:12px; }
+.container { max-width:1100px; margin: 12px auto; padding: 12px; }
+header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+main { display:flex; gap:12px; margin-top:12px; align-items:flex-start; }
+.left-column { display:flex; flex-direction:column; gap:8px; }
 canvas { background: linear-gradient(#a0d8ff,#ffffff); border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
-.info { width:260px; background: rgba(255,255,255,0.85); padding:10px; border-radius:8px; }
+.info { width:320px; background: rgba(255,255,255,0.95); padding:10px; border-radius:8px; }
 .message { margin-top:8px; padding:8px; background:#fff8c4; border-radius:6px; }
 .theory { margin-top:12px; background: rgba(255,255,255,0.9); padding:12px; border-radius:8px; }
 .hidden { display:none; }
 footer { margin-top:10px; font-size:12px; color:#033; }
 .equation { font-family: 'Courier New', monospace; background: #fff; padding:6px; display:inline-block; border-radius:4px; }
+.charts { display:flex; flex-direction:column; gap:6px; }
+#chartY, #chartV { background: #fff; border-radius:6px; }

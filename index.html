@@ -24,11 +24,38 @@
           <button id="startBtn">Iniciar</button>
           <button id="resetBtn">Reiniciar</button>
           <button id="toggleTheory">Mostrar teoría</button>
+          <!-- Añadidos: controles detallados y Laplace -->
+          <label title="Gravedad (m/s²)">g:
+            <input id="inputG" type="number" step="0.01" value="9.81" style="width:80px"/>
+          </label>
+          <label title="Coeficiente de arrastre k (kg/s)">k:
+            <input id="inputK" type="number" step="0.01" value="0.5" style="width:80px"/>
+          </label>
+          <label title="Masa (kg)">m:
+            <input id="inputM" type="number" step="0.01" value="1.0" style="width:80px"/>
+          </label>
+          <label title="Altura inicial (m)">h0:
+            <input id="inputH0" type="number" step="0.1" value="100" style="width:80px"/>
+          </label>
+          <label title="Velocidad inicial (m/s)">v0:
+            <input id="inputV0" type="number" step="0.1" value="0" style="width:80px"/>
+          </label>
+          <label><input id="laplaceToggle" type="checkbox"/> Mostrar Laplace</label>
+          <label><input id="liveUpdate" type="checkbox" checked/> Actualizar en vivo</label>
+          <button id="applyBtn" title="Aplicar constantes y condiciones">Aplicar</button>
         </div>
       </header>
 
       <main>
-        <canvas id="game" width="800" height="600"></canvas>
+        <div class="left-column">
+          <canvas id="game" width="700" height="500"></canvas>
+          <!-- Gráficos -->
+          <div class="charts">
+            <canvas id="chartY" width="700" height="200"></canvas>
+            <canvas id="chartV" width="700" height="200"></canvas>
+          </div>
+        </div>
+
         <aside class="info">
           <div>Altura: <span id="height">100.00</span> m</div>
           <div>Velocidad: <span id="velocity">0.00</span> m/s</div>
@@ -36,6 +63,14 @@
           <div>Puntuación (menor es mejor): <span id="score">-</span></div>
           <hr>
           <div id="message" class="message">Presiona "Iniciar" para empezar</div>
+          <section id="analysis">
+            <h3>Análisis</h3>
+            <div>Tiempo de caída (sim): <span id="fallTimeSim">-</span> s</div>
+            <div>Tiempo de caída (analítico): <span id="fallTimeAna">-</span> s</div>
+            <div>Velocidad impacto (sim): <span id="impactVelSim">-</span> m/s</div>
+            <div>Velocidad impacto (analítica): <span id="impactVelAna">-</span> m/s</div>
+            <div>Velocidad terminal (analítica): <span id="vTerminalAna">-</span> m/s</div>
+          </section>
         </aside>
       </main>
 
@@ -44,6 +79,7 @@
         <p>En caída libre, la posición vertical aproximada se calcula con:</p>
         <p class="equation">s = s0 + v0·t + 0.5·g·t²</p>
         <p>Este prototipo añade resistencia del aire: a = g - (k/m)·v (modelo simple), por lo que la masa y el coeficiente de arrastre afectan a la aceleración.</p>
+        <p>Opcional: al activar "Mostrar Laplace" se sobrepone la solución analítica (obtenida por transformada de Laplace) sobre la simulación numérica.</p>
       </section>
 
       <footer>
@@ -51,6 +87,8 @@
       </footer>
     </div>
 
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="src/game.js"></script>
   </body>
 </html>
